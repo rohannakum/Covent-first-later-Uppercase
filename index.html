@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Character Uppercase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        main {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .mainDiv {
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+            font-size: 50px;
+            font-weight: bolder;
+            margin: 20px 20px;
+        }
+
+        label {
+            font-size: 25px;
+            margin: 0px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        textarea {
+            border: 2px solid black;
+            font-size: 25px;
+            margin: 15px;
+        }
+
+        button {
+            font-size: 25px;
+            color: white;
+            background: rgba(49, 49, 148, 0.650);
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 270px;
+            height: 50px;
+            margin: 30px;
+        }
+
+        button:hover {
+            background: rgba(49, 49, 148, 0.750);
+        }
+
+        .pictureDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 90vw;
+            height: auto;
+        }
+
+        .htmlPictureDiv {
+            margin: 20px;
+            height: 50%;
+        }
+
+        .jsPictureDiv {
+            margin: 20px;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="mainDiv">
+            <h1>First Character Uppercase</h1>
+
+
+            <div class="input1">
+                <label for="variable1">Enter String in a Text Box </label>
+                <textarea name="var1" id="variable1" cols="50" rows="5"></textarea>
+            </div>
+            <Button onclick="function1()">Convert</Button>
+
+
+            <div id="beforeText">
+                <textarea name="var2" id="variable2" cols="50" rows="5" disabled></textarea>
+            </div>
+
+        </div>
+        <div class="pictureDiv">
+            <div class="htmlPictureDiv">
+                <img src="./html.png" alt="P1">
+            </div>
+            <div class="jsPictureDiv">
+                <img src="./js.png" alt="P1">
+
+            </div>
+        </div>
+
+
+    </main>
+
+
+
+    <!-- JavaScript  -->
+    <script>
+        "use strict";
+        function function1() {
+            let a = document.getElementById("variable1").value;
+            let b = a.length;
+            let outputString;
+
+
+            // creat array using split function 
+            let arr1 = a.split(" ");
+            let c = arr1.length;
+            let g;
+            let h;
+            let outputString2;
+
+            // process array in to frist character Uppercase
+            for (let i = 0; i < c; i++) {
+
+                // frist character uppercase
+                let d = String(arr1[i]);
+                let e = d.length;
+                let f = d.charAt(0);
+                g = f.toLocaleUpperCase();
+
+                // get other character by using concat
+                for (let j = 1; j < e; j++) {
+                    console.log("second loop start");
+                    if (j == 1) {
+                        console.log("if run");
+                        h = String(d.charAt(j));
+                    } else {
+                        h = h.concat(d.charAt(j));
+                    }
+                }
+                outputString = g.concat(h);
+                //last add all character in one variable and concat that variable
+                if (i == 0) {
+                    outputString2 = outputString;
+                } else {
+                    outputString2 = outputString2.concat(" " + outputString);
+                }
+            }
+            // print value in texbox
+            document.getElementById("variable2").value = outputString2;
+        }
+    </script>
+
+</body>
+
+</html>
